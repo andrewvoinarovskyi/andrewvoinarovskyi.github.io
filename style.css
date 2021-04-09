@@ -1,0 +1,50 @@
+header {
+    background-color: darkgrey;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    height: 110px;
+
+}
+main {
+    margin-top: 110px;
+}
+tr {
+    border-width: medium;
+    border-color: green;
+    border-spacing: 3px;
+}
+
+table, tr, th, td {
+    border: 1px black solid;
+    border-spacing: inherit;
+}
+
+tr {
+    width: auto;
+}
+
+td {
+    width: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "DejaVu Sans";
+}
+
+p {
+    font-family: "Fira Code";
+}
+
+td {
+    word: wrap;
+}
+
+header img {
+    width: 90px;
+    height: 150px;
+    float: right;
+}
+
