@@ -5,8 +5,19 @@ header {
     right: 0;
     top: 0;
     bottom: auto;
-    height: 150px;
     z-index: 1;
+    overflow: auto;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    float: right;
+}
+
+.image img {
+    width: 150px;
+    height: 150px;
 }
 
 .headers {
@@ -50,17 +61,6 @@ p {
     font-family: "Fira Code";
 }
 
-.image {
-    width: 150px;
-    height: 150px;
-    float: right;
-}
-
-.image img {
-    width: 150px;
-    height: 150px;
-}
-
 .exp {
     position: relative;
 }
@@ -69,4 +69,23 @@ p {
     position: absolute;
     top: -15px;
     right: 5px;
+}
+
+.technical p {
+    width: 50%;
+}
+
+.technical :nth-child(even) {
+    float: left;
+}
+
+.technical :nth-child(odd) {
+    float: left;
+}
+
+@media screen and (max-width: 692px)   {
+    .technical p{
+        width:100%;
+        float: none;
+    }
 }
