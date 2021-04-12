@@ -1,7 +1,6 @@
 body {
     max-width: 900px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
 }
 
 header {
@@ -123,6 +122,18 @@ p {
     .edu-info {
         width: 250px;
         flex: 100px;
+    }
+}
+
+@media screen and (max-width: 470px)   {
+    .image {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 350px)    {
+    main {
+        margin-top: 180px;
     }
 }
 
