@@ -5,46 +5,68 @@ header {
     right: 0;
     top: 0;
     bottom: auto;
-    height: 110px;
-
+    height: 150px;
+    z-index: 1;
 }
+
+.headers {
+  float: left;
+}
+
 main {
-    margin-top: 110px;
-}
-tr {
-    border-width: medium;
-    border-color: green;
-    border-spacing: 3px;
+    margin-top: 150px;
 }
 
-table, tr, th, td {
-    border: 1px black solid;
+table{
+    border: 1px solid;
     border-spacing: inherit;
 }
 
-tr {
+td {
+    border: 1px solid cadetblue;
     width: auto;
 }
 
-td {
-    width: auto;
+td div {
+    padding: 4px;
+}
+
+th {
+    border-width: 1px;
+    border-style: solid;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "DejaVu Sans";
 }
 
+tr {
+    border-width: medium;
+    border-color: green;
+    width: auto;
+}
+
 p {
     font-family: "Fira Code";
 }
 
-td {
-    word: wrap;
-}
-
-header img {
-    width: 90px;
+.image {
+    width: 150px;
     height: 150px;
     float: right;
 }
 
+.image img {
+    width: 150px;
+    height: 150px;
+}
+
+.exp {
+    position: relative;
+}
+
+.exp-date {
+    position: absolute;
+    top: -15px;
+    right: 5px;
+}
