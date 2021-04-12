@@ -1,4 +1,12 @@
+body {
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 header {
+    margin-left: auto;
+    margin-right: auto;
     background-color: darkgrey;
     position: fixed;
     left: 0;
@@ -7,17 +15,16 @@ header {
     bottom: auto;
     z-index: 1;
     overflow: auto;
+    max-width: 900px;
 }
 
 .image {
-    width: 150px;
-    height: 150px;
     float: right;
 }
 
-.image img {
-    width: 150px;
-    height: 150px;
+img{
+    width: 120px;
+    height: 120px;
 }
 
 .headers {
@@ -28,64 +35,107 @@ main {
     margin-top: 150px;
 }
 
-table{
-    border: 1px solid;
-    border-spacing: inherit;
+h5 {
+    margin-bottom: 0;
 }
 
-td {
-    border: 1px solid cadetblue;
-    width: auto;
+.about-me {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-td div {
-    padding: 4px;
+.profile, .skills, .technical {
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-th {
-    border-width: 1px;
-    border-style: solid;
+.profile h4, .skills h4, .technical h4 {
+    width: 100px;
+    float: left;
+}
+
+.profile div, .skills div, .technical div {
+    max-width: 500px;
+    float: right;
+}
+
+.education {
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+}
+
+.education div {
+    margin-left: 15px;
+}
+
+.edu-info {
+    flex: 250px;
+    height: 100px;
+    position: relative;
+}
+
+.location {
+    font-size: 20px;
+}
+
+.years {
+    position: absolute;
+    top: 0;
+    right: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "DejaVu Sans";
 }
 
-tr {
-    border-width: medium;
-    border-color: green;
-    width: auto;
-}
-
 p {
     font-family: "Fira Code";
+    margin: 0;
 }
 
-.exp {
-    position: relative;
+.exp-location {
+    font-size: 20px;
 }
 
-.exp-date {
-    position: absolute;
-    top: -15px;
-    right: 5px;
+.flying-badges {
+    width: 500px;
 }
 
-.technical p {
+.flying-badges p {
     width: 50%;
-}
-
-.technical :nth-child(even) {
+    height: 2.5rem;
     float: left;
 }
 
-.technical :nth-child(odd) {
-    float: left;
-}
-
-@media screen and (max-width: 692px)   {
-    .technical p{
+@media screen and (max-width: 600px)   {
+    .flying-badges p{
         width:100%;
         float: none;
     }
+
+    .education {
+        flex-direction: column;
+    }
+    
+    .edu-info {
+        width: 250px;
+        flex: 100px;
+    }
+}
+
+#btn {
+    border-radius: 3px;
+    background-color: blue;
+}
+
+#btn:active {
+    background-color: darkblue;
+}
+
+#btn a {
+    color: yellow;
+    text-underline-color: blue;
 }
