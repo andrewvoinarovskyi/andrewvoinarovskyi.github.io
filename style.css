@@ -48,6 +48,8 @@ h5 {
     display: inline-block;
     margin-bottom: 30px;
     margin-top: 30px;
+    border-bottom: darkgrey 2px solid;
+    padding-bottom: 10px;
 }
 
 .profile h4, .skills h4, .technical h4 {
@@ -64,6 +66,8 @@ h5 {
     max-width: 600px;
     display: flex;
     flex-direction: row;
+    border-bottom: darkgrey 2px solid;
+    padding-bottom: 10px;
 }
 
 .education div {
