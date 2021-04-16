@@ -10,9 +10,18 @@
 </head>
 <body>
     <header>
-        <button>☰</button>
-        <section>
+        <nav>
+            <button>☰</button>
             <h1>Portofolio</h1>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Skills</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+        <section>
             <h2>Hi, It’s Théophile Seyrig</h2>
             <h3>Designer from Porto, Portugal</h3>
             <a href="">Latest works</a>
@@ -28,6 +37,7 @@
                     Pellentesque senectus risus consectetur et sed purus sed.
                     Consectetur adipiscing elit.
                     Egestas porttitor nulla nulla egestas odio pharetra egestas aliquet mollis.</p>
+                <br>
                 <p>Arcu, sed nisi, mi, arcu libero phasellus tincidunt.
                     Rhoncus, diam penatibus aliquet tellus, in rutrum augue.
                     Pellentesque senectus risus consectetur et sed purus sed.
@@ -39,40 +49,44 @@
         </section>
         <section class="skills">
             <h3>Skills</h3>
-            <img src="img/Profile%20Picture.png" alt="Profile Picture">
-            <section class="skills__points">
-                <h5>Profile</h5>
-                <p>UI / UX Engineer, Front-end Developer</p>
-            </section>
-            <section class="progress-block">
-                <section>
-                    <section class="skills__points">
-                        <h5>Front-end Dev</h5>
-                        <div class="progress_max"><div class="front-end__progress_value"></div></div>
-                    </section>
-                    <section class="skills__points tools">
-                        <h5>Tools</h5>
-                        <p>HTML, CSS, JS, Bootstrap, React</p>
-                    </section>
-                </section>
-                <section>
-                    <section class="skills__points tools">
-                        <h5>UI Design</h5>
-                        <div class="progress_max"><div class="design__progress_value"></div></div>
+            <section>
+                <img src="img/Profile%20Picture.png" alt="Profile Picture">
+                <section class="progress-block">
+                    <section class="skills__profile">
+                        <h5>Profile</h5>
+                        <p>UI / UX Engineer, Front-end Developer</p>
                     </section>
                     <section class="skills__points">
-                        <h5>Tools</h5>
-                        <p>Adobe PS, AI, XD, Figma, InVision</p>
-                    </section>
-                </section>
-                <section>
-                    <section class="skills__points">
-                        <h5>UX Research</h5>
-                        <div class="progress_max"><div class="research__progress_value"></div></div>
-                    </section>
-                    <section class="skills__points tools">
-                        <h5>Tools</h5>
-                        <p>Paper, Pen, Balsamiq</p>
+                        <section>
+                            <section class="skills__point">
+                                <h5>Front-end Dev</h5>
+                                <div class="progress_max"><div class="front-end__progress_value"></div></div>
+                            </section>
+                            <section class="skills__point">
+                                <h5>Tools</h5>
+                                <p>HTML, CSS, JS, Bootstrap, React</p>
+                            </section>
+                        </section>
+                        <section>
+                            <section class="skills__point">
+                                <h5>UI Design</h5>
+                                <div class="progress_max"><div class="design__progress_value"></div></div>
+                            </section>
+                            <section class="skills__point">
+                                <h5>Tools</h5>
+                                <p>Adobe PS, AI, XD, Figma, InVision</p>
+                            </section>
+                        </section>
+                        <section>
+                            <section class="skills__point">
+                                <h5>UX Research</h5>
+                                <div class="progress_max"><div class="research__progress_value"></div></div>
+                            </section>
+                            <section class="skills__point">
+                                <h5>Tools</h5>
+                                <p>Paper, Pen, Balsamiq</p>
+                            </section>
+                        </section>
                     </section>
                 </section>
             </section>
@@ -80,17 +94,19 @@
         <section class="portfolio">
             <h3>Portfolio</h3>
             <h4>UX Research</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <br>Ac dictum nibh nam odio cursus id. Diam massa<br>
-                semper a tincidunt cursus ultricies lectus eget urna.</p>
-            <section class="portfolio__collage">
-                <section>
-                    <img src="img/pic1.png" alt="pic1" class="pic1">
-                    <img src="img/pic3.png" alt="pic3" class="pic3">
-                </section>
-                <section>
-                    <img src="img/pic2.png" alt="pic2" class="pic2">
-                    <img src="img/pic4.png" alt="pic4" class="pic4">
+            <section>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <br>Ac dictum nibh nam odio cursus id. Diam massa<br>
+                    semper a tincidunt cursus ultricies lectus eget urna.</p>
+                <section class="portfolio__collage">
+                    <section class="portfolio__collage_column">
+                        <img src="img/pic1.png" alt="pic1" class="pic1">
+                        <img src="img/pic3.png" alt="pic3" class="pic3">
+                    </section>
+                    <section class="portfolio__collage_column">
+                        <img src="img/pic2.png" alt="pic2" class="pic2">
+                        <img src="img/pic4.png" alt="pic4" class="pic4">
+                    </section>
                 </section>
             </section>
         </section>
