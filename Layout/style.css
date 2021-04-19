@@ -6,7 +6,7 @@
 
 header {
     background: linear-gradient( rgba(198, 108, 73, 0.4), rgba(198, 108, 73, 0.4)), url("img/bg.png");
-    width: 373px;
+    min-width: 373px;
     height: 275px;
     margin-top: 2px;
     margin-right: 2px;
@@ -93,7 +93,7 @@ header a {
 }
 
 main, footer {
-    width: 375px;
+    min-width: 375px;
     background: #FFFAF2;
 }
 
@@ -131,7 +131,7 @@ main h3 {
 
 .skills {
     height: 617px;
-    width: 375px;
+    min-width: 375px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -216,7 +216,7 @@ main h3 {
 }
 
 .portfolio {
-    width: 375px;
+    min-width: 375px;
     height: 404px;
     display: flex;
     flex-direction: column;
@@ -263,6 +263,7 @@ footer {
     height: 360px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 footer h3 {
@@ -276,7 +277,8 @@ footer h3 {
 
 .links {
     margin-top: 25px;
-    margin-left: 42px;
+    margin-left: 11%;
+    min-width: 375px;
     display: flex;
     align-items: baseline;
 }
@@ -310,7 +312,6 @@ footer a {
 
 .contacts {
     margin-top: 30px;
-    margin-left: 42px;
 }
 
 .email {
