@@ -5,12 +5,11 @@
 }
 
 header {
-    background: linear-gradient( rgba(198, 108, 73, 0.4), rgba(198, 108, 73, 0.4)), url("img/bg.png");
+    background-size: cover;
+    background-image: linear-gradient( rgba(198, 108, 73, 0.4), rgba(198, 108, 73, 0.4)), url("img/bg.png");
     min-width: 373px;
     height: 275px;
     margin-top: 2px;
-    margin-right: 2px;
-    position: relative;
 }
 
 header nav {
