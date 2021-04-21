@@ -1,0 +1,65 @@
+body>header {
+    margin: auto;
+    width: 200px;
+}
+
+#list {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    max-width: 800px;
+}
+
+#list>header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #53e815;
+}
+
+#list section {
+    margin-top: 10px;
+    border: violet 1px dotted;
+    display: flex;
+    align-items: center;
+    background-color: #9eda59;
+
+}
+
+.title, .description {
+    margin-left: 10px;
+}
+
+#checkbox {
+    width: 20px;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.line-through .title, .line-through .description {
+    color: gray;
+}
+
+.title {
+    flex: 1;
+    line-height: 150%;
+    font-size: 120%;
+    color: black;
+}
+
+.description {
+    flex: 2;
+    color: darkgreen;
+}
+
+.date {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.overdue-date {
+    color: red;
+}
