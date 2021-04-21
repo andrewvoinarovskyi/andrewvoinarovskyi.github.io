@@ -1,11 +1,11 @@
 const todoListElement = document.querySelector('#list');
 const TRASH = '\u{1F5D1}';
 class todoItem {
-    constructor (id, title, description, dueDate, done) {
+    constructor (id, title, description, deadline, done) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.dueDate = dueDate ? new Date (dueDate) : '';
+        this.deadline = deadline ? new Date (deadline) : '';
         this.done = done;
     }
 }
@@ -48,14 +48,14 @@ function deleteItem(element) {
 
 function appendTodoItem(item) {
     if (item !== null) {
-        const {id, title, description, dueDate, done} = item;
+        const {id, title, description, deadline, done} = item;
 
         let checkbox = `<input class="checkbox" type="checkbox" ${done ? 'checked' : 'unchecked'} />`;
         let taskTitle = `<p class="title">${title.toUpperCase()}</p>`;
         let taskDescription = description ? `<p class="description">${description}</p>` : `<p class="description"></p>`;
-        let taskDueDate = dueDate ? `<p class="date${dueDate <= Date.now() ? " overdue-date" : ''}">${dueDate.toDateString()}</p>` : `<p class = "date"></p>`;
+        let taskDeadline = deadline ? `<p class="date${deadline <= Date.now() ? " overdue-date" : ''}">${deadline.toDateString()}</p>` : `<p class = "date"></p>`;
 
-        const inner = `<section class="item${done ? ' done' : ''}" id="item_${id}">` + checkbox + taskTitle + taskDescription + taskDueDate + `<button class="delete">${TRASH}</button></section>`;
+        const inner = `<section class="item${done ? ' done' : ''}" id="item_${id}">` + checkbox + taskTitle + taskDescription + taskDeadline + `<button class="delete">${TRASH}</button></section>`;
 
         todoListElement.innerHTML += inner;
     }

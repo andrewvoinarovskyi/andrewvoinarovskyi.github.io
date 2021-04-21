@@ -20,6 +20,12 @@
         <section id="filters">
             <input id="hider" type="checkbox" name="hider" onclick="hideMade(); event.stopPropagation()" unchecked />
             <label for="hider"> Hide made</label><br>
+            <form name="todoItem">
+                <input type="text" name="title" placeholder="Title">
+                <input type="text" name="description" placeholder="Description(optional)">
+                <input type="date" name="deadline" placeholder="">
+                <button type="submit">Add</button>
+            </form>
         </section>
         <section id="list"></section>
     </main>
