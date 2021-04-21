@@ -1,24 +1,34 @@
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
 body>header {
     margin: auto;
     width: 200px;
 }
 
-#list {
-    margin: auto;
+#list, main {
     display: flex;
     flex-direction: column;
     min-width: 350px;
-    max-width: 800px;
+    max-width: 600px;
+
 }
 
-#list>header {
+.only-open>.done {
+    display: none;
+}
+
+main>header {
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: #53e815;
 }
 
-#list section {
+.item {
     margin-top: 10px;
     border: violet 1px dotted;
     display: flex;
@@ -35,7 +45,7 @@ body>header {
     width: 20px;
 }
 
-.line-through {
+.done .title {
     text-decoration: line-through;
 }
 
@@ -62,4 +72,8 @@ body>header {
 
 .overdue-date {
     color: red;
+}
+
+.btn {
+    width: 32px;
 }

@@ -10,14 +10,18 @@
         <h1>TodoList</h1>
     </header>
     <main>
-        <section id="list">
-            <header>
-                <div id="checkbox"></div>
-                <p class="title">Title</p>
-                <p class="description">Description</p>
-                <p class="date">Date</p>
-            </header>
+        <header>
+            <div id="checkbox"></div>
+            <p class="title">Title</p>
+            <p class="description">Description</p>
+            <p class="date">Date</p>
+            <div class="btn"></div>
+        </header>
+        <section id="filters">
+            <input id="hider" type="checkbox" name="hider" onclick="hideMade(); event.stopPropagation();">
+            <label for="hider"> Hide made</label><br>
         </section>
+        <section id="list"></section>
     </main>
 
     <script type="text/javascript" src="script.js" ></script>
