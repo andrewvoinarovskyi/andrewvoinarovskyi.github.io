@@ -1,12 +1,18 @@
 const todoListElement = document.querySelector('#list');
 const TRASH = '\u{1F5D1}';
 class todoItem {
-    constructor (id, title, description, deadline, done) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.deadline = deadline ? new Date (deadline) : '';
-        this.done = done;
+    constructor (id, titleOrObject, description, deadline, done) {
+        if (typeof titleOrObject === 'object') {
+            this.id = id;
+            Object.assign(this, titleOrObject);
+            this.done = false;
+        } else {
+            this.id = id;
+            this.title = titleOrObject;
+            this.description = description;
+            this.deadline = deadline ? new Date(deadline) : '';
+            this.done = done;
+        }
     }
 }
 
@@ -23,18 +29,18 @@ function render (list) {
 
     list.forEach(appendTodoItem);
 
-    let checkbox = document.querySelectorAll('.checkbox');
+    // let checkbox = document.querySelectorAll('.checkbox');
 
-    checkbox.forEach(box => box.addEventListener('click', (event) => {
-        box.parentElement.classList.toggle('done');
-    }));
+    // checkbox.forEach(box => box.addEventListener('click', (event) => {
+    //     box.parentElement.classList.toggle('done');
+    // }));
 
-    let deleteButton = document.querySelectorAll('.delete');
-
-    deleteButton.forEach(btn => btn.addEventListener('click', (event) => {
-        deleteItem(btn.parentElement);
-        event.stopPropagation();
-    }));
+    // let deleteButton = document.querySelectorAll('.delete');
+    //
+    // deleteButton.forEach(btn => btn.addEventListener('click', (event) => {
+    //     deleteItem(btn.parentElement);
+    //     event.stopPropagation();
+    // }));
 }
 
 function hideMade() {
@@ -58,5 +64,34 @@ function appendTodoItem(item) {
         const inner = `<section class="item${done ? ' done' : ''}" id="item_${id}">` + checkbox + taskTitle + taskDescription + taskDeadline + `<button class="delete">${TRASH}</button></section>`;
 
         todoListElement.innerHTML += inner;
+
+        addCheckboxesFunctional();
+
+        let deleteButton = document.querySelectorAll('.delete');
+
+        deleteButton.forEach(btn => btn.addEventListener('click', (event) => {
+            deleteItem(btn.parentElement);
+            event.stopPropagation();
+        }));
     }
 }
+
+function addCheckboxesFunctional () {
+    let checkbox = document.querySelector('.item:last-child');
+
+    checkbox.addEventListener('click', () => {
+        checkbox.parentElement.classList.toggle('done')
+    });
+}
+
+const todoItemForm = document.forms['todoItem'];
+
+todoItemForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(todoItemForm);
+    const lastId = todoList[todoList.length - 1].id;
+    const todoitem = new todoItem(lastId + 1, Object.fromEntries(formData.entries()));
+    todoList.push(todoitem);
+    appendTodoItem(todoitem);
+    todoItemForm.reset();
+});
