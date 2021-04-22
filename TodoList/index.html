@@ -20,14 +20,14 @@
         <section id="filters">
             <input id="hider" type="checkbox" name="hider" onclick="hideMade(); event.stopPropagation()" unchecked />
             <label for="hider"> Hide made</label><br>
-            <form name="todoItem">
-                <input type="text" name="title" placeholder="Title">
+            <form name="todoItem" id="todoItem">
+                <input type="text" name="title" placeholder="Title" required>
                 <input type="text" name="description" placeholder="Description(optional)">
                 <input type="date" name="deadline" placeholder="">
                 <button type="submit">Add</button>
             </form>
         </section>
-        <section id="list"></section>
+        <section id="list" onclick="listController(event)"></section>
     </main>
 
     <script type="text/javascript" src="script.js" ></script>

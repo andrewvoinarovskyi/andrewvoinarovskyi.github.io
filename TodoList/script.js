@@ -2,17 +2,17 @@ const todoListElement = document.querySelector('#list');
 const TRASH = '\u{1F5D1}';
 class todoItem {
     constructor (id, titleOrObject, description, deadline, done) {
-        if (typeof titleOrObject === 'object') {
-            this.id = id;
-            Object.assign(this, titleOrObject);
-            this.done = false;
-        } else {
-            this.id = id;
-            this.title = titleOrObject;
-            this.description = description;
-            this.deadline = deadline ? new Date(deadline) : '';
-            this.done = done;
-        }
+        // if (typeof titleOrObject === 'object') {
+        //     this.id = id;
+        //     Object.assign(this, titleOrObject);
+        //     this.done = false;
+        // } else {
+        this.id = id;
+        this.title = titleOrObject;
+        this.description = description;
+        this.deadline = deadline ? new Date(deadline) : '';
+        this.done = done;
+        // }
     }
 }
 
@@ -28,69 +28,59 @@ function render (list) {
     todoListElement.innerHTML = "";
 
     list.forEach(appendTodoItem);
+}
 
-    // let checkbox = document.querySelectorAll('.checkbox');
+function listController(e) {
+    deleteItem(e);
+    checkDone(e);
 
-    // checkbox.forEach(box => box.addEventListener('click', (event) => {
-    //     box.parentElement.classList.toggle('done');
-    // }));
+}
 
-    // let deleteButton = document.querySelectorAll('.delete');
-    //
-    // deleteButton.forEach(btn => btn.addEventListener('click', (event) => {
-    //     deleteItem(btn.parentElement);
-    //     event.stopPropagation();
-    // }));
+function deleteItem (e) {
+    if (e.target.nodeName === 'BUTTON') {
+        e.currentTarget.removeChild(e.target.parentElement);
+        todoList = todoList
+            .filter(todoItem => todoItem['id'].toString() !== e.target.parentElement.id.split('_')[1]);
+    }
+}
+
+function checkDone (e) {
+    if (e.target.className === 'checkbox') {
+        let item = e.target.parentElement;
+        let id = item.id.split('_')[1] - 1;
+
+        item.classList.toggle('done');
+
+        todoList[id].done = !todoList[id].done;
+    }
+}
+
+function appendTodoItem(item) {
+
+    const {id, title, description, deadline, done} = item;
+
+    let checkbox = `<input class="checkbox" type="checkbox" ${done ? 'checked' : ''} />`;
+    let taskTitle = `<p class="title">${title.toUpperCase()}</p>`;
+    let taskDescription = description ? `<p class="description">${description}</p>` : `<p class="description"></p>`;
+    let taskDeadline = deadline ? `<p class="date${deadline <= Date.now() ? " overdue-date" : ''}">${deadline.toDateString()}</p>` : `<p class = "date"></p>`;
+
+    const inner = `<section class="item${done ? ' done' : ''}" id="item_${id}">` + checkbox + taskTitle + taskDescription + taskDeadline + `<button class="delete">${TRASH}</button></section>`;
+
+    todoListElement.innerHTML += inner;
 }
 
 function hideMade() {
     document.querySelector('#list').classList.toggle('only-open');
 }
 
-function deleteItem(element) {
-    todoList = todoList.filter(todoItem => todoItem['id'].toString() !== element.id.split('_')[1]);
-    element.parentElement.removeChild(element);
-}
-
-function appendTodoItem(item) {
-    if (item !== null) {
-        const {id, title, description, deadline, done} = item;
-
-        let checkbox = `<input class="checkbox" type="checkbox" ${done ? 'checked' : 'unchecked'} />`;
-        let taskTitle = `<p class="title">${title.toUpperCase()}</p>`;
-        let taskDescription = description ? `<p class="description">${description}</p>` : `<p class="description"></p>`;
-        let taskDeadline = deadline ? `<p class="date${deadline <= Date.now() ? " overdue-date" : ''}">${deadline.toDateString()}</p>` : `<p class = "date"></p>`;
-
-        const inner = `<section class="item${done ? ' done' : ''}" id="item_${id}">` + checkbox + taskTitle + taskDescription + taskDeadline + `<button class="delete">${TRASH}</button></section>`;
-
-        todoListElement.innerHTML += inner;
-
-        addCheckboxesFunctional();
-
-        let deleteButton = document.querySelectorAll('.delete');
-
-        deleteButton.forEach(btn => btn.addEventListener('click', (event) => {
-            deleteItem(btn.parentElement);
-            event.stopPropagation();
-        }));
-    }
-}
-
-function addCheckboxesFunctional () {
-    let checkbox = document.querySelector('.item:last-child');
-
-    checkbox.addEventListener('click', () => {
-        checkbox.parentElement.classList.toggle('done')
-    });
-}
-
-const todoItemForm = document.forms['todoItem'];
+const todoItemForm = document.querySelector('#todoItem');
 
 todoItemForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new FormData(todoItemForm);
-    const lastId = todoList[todoList.length - 1].id;
-    const todoitem = new todoItem(lastId + 1, Object.fromEntries(formData.entries()));
+    console.log(formData);
+    const lastId = !!todoList[todoList.length - 1].id ? todoList[todoList.length - 1].id : 1;
+    const todoitem = new todoItem(lastId + 1, formData.get('title'), formData.get('description'), formData.get('deadline'), false);
     todoList.push(todoitem);
     appendTodoItem(todoitem);
     todoItemForm.reset();
