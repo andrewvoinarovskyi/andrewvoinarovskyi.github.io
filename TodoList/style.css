@@ -37,7 +37,7 @@ main>header {
 
 }
 
-.title, .description {
+.title, .description .date {
     margin-left: 10px;
 }
 
