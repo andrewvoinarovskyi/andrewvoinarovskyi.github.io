@@ -24,6 +24,11 @@ function listController(e) {
 function deleteItem (e) {
     if (e.target.nodeName === 'BUTTON') {
         e.currentTarget.removeChild(e.target.parentElement);
+
+        let item = e.target.parentElement;
+        let id = item.id.split('_')[1];
+
+        deleteTodoItem(id);
     }
 }
 
@@ -31,6 +36,7 @@ function changeDone (e) {
     if (e.target.className === 'checkbox') {
         let item = e.target.parentElement;
         let id = item.id.split('_')[1];
+
         item.classList.toggle('done');
 
         closeOrOpen(id, item.classList.contains('done'));
@@ -89,7 +95,7 @@ function createTodoItem(todoItem) {
     return fetch(todoListEndpoint, {
         method: 'POST',
         headers:  {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json-patch+json'
         },
         body: JSON.stringify(todoItem)
     })
@@ -100,8 +106,14 @@ function closeOrOpen(id, isDone) {
     return fetch(todoListEndpoint + slash + id, {
         method: 'PATCH',
         headers:  {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json-patch+json'
         },
-        body: `"done": "${isDone}"`
+        body: JSON.stringify([{ op : "replace", path : "/done", value : isDone }])
+});
+}
+
+function deleteTodoItem(id) {
+    return fetch(todoListEndpoint + slash + id, {
+        method: 'DELETE',
     });
 }
